@@ -12,10 +12,9 @@ public class Perfect {
             if (num % i == 0) {
                 sum += i;
                 if (!(div.length() == 0)) {
-                    div = div + " + " + i;
-                } else {
-					div = i + " + " + div;
-				}
+                    div = div + " + ";
+                }
+                div = div + i;
             }
         }
 
