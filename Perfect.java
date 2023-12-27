@@ -11,11 +11,11 @@ public class Perfect {
         for (int i = 1; i <= num / 2; i++) {
             if (num % i == 0) {
                 sum += i;
-                if (!(divisors.length()==0)) {
+                if (!(div.length()==0)) {
                     div = i + " + " + div;
-                } else {
-                    div = Integer.toString(i);
-                }
+				} else {
+					div = i + " + " + div;
+				}
             }
         }
 
