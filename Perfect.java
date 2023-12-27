@@ -5,26 +5,27 @@ public class Perfect {
 	public static void main (String[] args) {
 		
 		int num = Integer.parseInt(args[0]);
-        System.out.print(num + " is");
-
         int sum = 1;
-        int count = 0;
 
-         for (int i = 2; i <= num / 2; i++) {
+         for (int i = 1; i <= num / 2; i++) {
             if (num % i == 0) {
-                if (count > 0) {
-                    System.out.print(" +");
-                }
-                System.out.print(" " + i);
                 sum += i;
-                count++;
             }
         }
 
         if (sum == num) {
-            System.out.println(" a perfect number since " + num + " = " + sum);
+            String divisors = "";
+            for (int i = 1; i <= num / 2; i++) {
+                if (num % i == 0) {
+                    divisors += " + " + i;
+                }
+            }
+            divisors += " = " + num;
+            System.out.println(num + " is a perfect number since");
+			System.out.print(num + " = " + divisors);
+
         } else {
-            System.out.println(" not a perfect number.");
+            System.out.println(num + " is not a perfect number");
         }
     }
 }
