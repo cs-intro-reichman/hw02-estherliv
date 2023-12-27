@@ -6,21 +6,21 @@ public class Perfect {
 		
 		int num = Integer.parseInt(args[0]);
         int sum = 0;
-        String divisors = "";
+        String div = "";
 
         for (int i = 1; i <= num / 2; i++) {
             if (num % i == 0) {
                 sum += i;
                 if (!(divisors.length()==0)) {
-                    divisors += " + ";
+                    div = i + " + " + div;
+                } else {
+                    div = Integer.toString(i);
                 }
-                divisors += i;
             }
         }
 
         if (sum == num) {
-            divisors += " = " + num;
-            System.out.println(num + " is a perfect number since " + divisors);
+            System.out.println(num + " is a perfect number since " + num + " = " + div);
         } else {
             System.out.println(num + " is not a perfect number");
         }
