@@ -15,21 +15,14 @@ public class OneOfEachStats {
 		// Initailizes a random numbers generator with the given seed value
         Random generator = new Random(seed);  
 		
-		int totalChildren = 0;
-        int twoChildren = 0;
-        int threeChildren = 0;
-        int fourOrMoreChildren = 0;
-        int mostCommonNumber = 0;
-        int largestCount = 0;
-
-        for (int i = 0; i < T; i++) {
+		for (int i = 0; i < T; i++) {
             boolean boy = false;
             boolean girl = false;
             int numberOfChildren = 0;
 
             while (!boy || !girl) {
-                double rnd = generator.nextDouble();
-                if (rnd < 0.5) {
+                double random = Math.random();
+                if (random < 0.5) {
                     boy = true;
                 } else {
                     girl = true;
@@ -48,20 +41,17 @@ public class OneOfEachStats {
                 fourOrMoreChildren++;
             }
 
-            // Update most common number of children
             if (numberOfChildren > largestCount) {
                 largestCount = numberOfChildren;
                 mostCommonNumber = numberOfChildren;
             }
         }
-
         double averageChildren = (double) totalChildren / T;
 
-        // Print the results
         System.out.println("Average: " + averageChildren + " children to get at least one of each gender.");
         System.out.println("Number of families with 2 children: " + twoChildren);
         System.out.println("Number of families with 3 children: " + threeChildren);
         System.out.println("Number of families with 4 or more children: " + fourOrMoreChildren);
         System.out.println("The most common number of children is " + mostCommonNumber + ".");
-	}
+    }
 }
