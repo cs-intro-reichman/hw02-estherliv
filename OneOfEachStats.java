@@ -8,14 +8,13 @@ import java.util.Random;
  *  Example usage: % java OneOfEachStats 1000 1
  */
 public class OneOfEachStats {
-	public static void main (String[] args) {
-		// Gets the two command-line arguments
-		int T = Integer.parseInt(args[0]);
-		int seed = Integer.parseInt(args[1]);
-		// Initailizes a random numbers generator with the given seed value
-        Random generator = new Random(seed);  
-		
-		int totalChildren = 0;
+	public static void main(String[] args) {
+        int T = Integer.parseInt(args[0]);
+        int seed = Integer.parseInt(args[1]);
+
+        Random generator = new Random(seed);
+
+        int totalChildren = 0;
         int twoChildren = 0;
         int threeChildren = 0;
         int fourOrMoreChildren = 0;
@@ -27,16 +26,16 @@ public class OneOfEachStats {
             boolean girl = false;
             int numberOfChildren = 0;
 
-            while (!boy || !girl) {
+            do {
                 double rand = generator.nextDouble();
-                if (rand < 0.5) {
+                if (rand < GENDER_PROBABILITY) {
                     boy = true;
                 } else {
                     girl = true;
                 }
 
                 numberOfChildren++;
-            }
+            } while (!boy || !girl);
 
             totalChildren += numberOfChildren;
 
@@ -47,13 +46,11 @@ public class OneOfEachStats {
             } else if (numberOfChildren >= 4) {
                 fourOrMoreChildren++;
             }
-			
-            if (numberOfChildren > largestCount) {
-				largestCount = numberOfChildren;
-				mostCommonNumber = numberOfChildren;
-			} else if (numberOfChildren == largestCount) {
-				mostCommonNumber = numberOfChildren;
-			}
+
+            if (numberOfChildren >= largestCount) {
+                largestCount = numberOfChildren;
+                mostCommonNumber = numberOfChildren;
+            }
         }
 
         double averageChildren = (double) totalChildren / T;
