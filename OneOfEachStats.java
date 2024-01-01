@@ -9,9 +9,9 @@ import java.util.Random;
  */
 public class OneOfEachStats {
 	public static void main(String[] args) {
+        // Gets the two command-line arguments
         int T = Integer.parseInt(args[0]);
         int seed = Integer.parseInt(args[1]);
-
         Random generator = new Random(seed);
 
         int totalChildren = 0;
@@ -28,7 +28,7 @@ public class OneOfEachStats {
 
             do {
                 double rand = generator.nextDouble();
-                if (rand < GENDER_PROBABILITY) {
+                if (rand < 0.5) {  
                     boy = true;
                 } else {
                     girl = true;
