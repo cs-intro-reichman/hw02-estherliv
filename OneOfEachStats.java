@@ -47,11 +47,13 @@ public class OneOfEachStats {
             } else if (numberOfChildren >= 4) {
                 fourOrMoreChildren++;
             }
-
+			
             if (numberOfChildren > largestCount) {
-                largestCount = numberOfChildren;
-                mostCommonNumber = numberOfChildren;
-            }
+				largestCount = numberOfChildren;
+				mostCommonNumber = numberOfChildren;
+			} else if (numberOfChildren == largestCount) {
+				mostCommonNumber = numberOfChildren;
+			}
         }
 
         double averageChildren = (double) totalChildren / T;
