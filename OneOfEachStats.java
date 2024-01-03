@@ -9,10 +9,8 @@ import java.util.Random;
  */
 public class OneOfEachStats {
 	public static void main (String[] args) {
-		// Gets the two command-line arguments
 		int T = Integer.parseInt(args[0]);
 		int seed = Integer.parseInt(args[1]);
-		// Initailizes a random numbers generator with the given seed value
         Random generator = new Random(seed);  
 		
 		int totalChildren = 0;
@@ -55,7 +53,7 @@ public class OneOfEachStats {
 
         double averageChildren = (double) totalChildren / T;
 
-        if (twoChildren > threeChildren && twoChildren > fourOrMoreChildren) {
+		if (twoChildren > threeChildren && twoChildren > fourOrMoreChildren) {
             mostCommonNumber = 2;
         } else if (threeChildren > twoChildren && threeChildren > fourOrMoreChildren) {
             mostCommonNumber = 3;
